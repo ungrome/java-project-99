@@ -4,6 +4,7 @@ FROM eclipse-temurin:20-jdk
 ARG GRADLE_VERSION=8.7
 RUN apt-get update && apt-get install -yq make unzip
 
+
 COPY ./ .
 
 RUN gradle installDist
