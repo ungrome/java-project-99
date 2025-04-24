@@ -1,16 +1,9 @@
+FROM gradle:7.4.0-jdk17
 
-FROM eclipse-temurin:20-jdk
+WORKDIR /app
 
-ARG GRADLE_VERSION=8.7
-RUN apt-get update && apt-get install -yq make unzip
+COPY /app .
 
-COPY gradle gradle
-COPY build.gradle.kts .
-COPY settings.gradle.kts .
-COPY gradlew .
-COPY build .
+RUN gradle installDist
 
-RUN ./gradlew --no-daemon build
-
-EXPOSE 8080
-CMD java -jar build/libs/app-0.0.1-SNAPSHOT.jar
+CMD ./build/install/app/bin/app
