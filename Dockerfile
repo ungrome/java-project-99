@@ -1,10 +1,15 @@
 FROM eclipse-temurin:21-jdk
 
-ARG GRADLE_VERSION=8.6
+ARG GRADLE_VERSION=8.7
 
 RUN apt-get update && apt-get install -yq unzip
 
-RUN ./gradlew --no-daemon build
+COPY gradle gradle
+COPY build.gradle.kts .
+COPY settings.gradle.kts .
+COPY gradlew .
+
+RUN ./gradlew --no-daemon dependencies
 
 EXPOSE 8080
 
