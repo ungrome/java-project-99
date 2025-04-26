@@ -3,6 +3,7 @@ plugins {
 	java
 	checkstyle
 	jacoco
+	id("org.sonarqube") version "6.0.1.5171"
 	id("org.springframework.boot") version "3.5.0-SNAPSHOT"
 	id("io.spring.dependency-management") version "1.1.7"
 	id("io.freefair.lombok") version "8.6"
@@ -47,7 +48,9 @@ dependencies {
 	testImplementation("org.junit.jupiter:junit-jupiter:5.11.1")
 }
 
-
+checkstyle {
+	toolVersion ="10.12.1"
+}
 jacoco {
 	toolVersion = "0.8.10"
 }
