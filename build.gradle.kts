@@ -29,23 +29,28 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter:3.3.2")
+	implementation("org.springframework.boot:spring-boot-starter-actuator:3.3.4")
 	implementation("org.springframework.boot:spring-boot-starter-web:3.3.4")
+	implementation("org.springframework.boot:spring-boot-configuration-processor:3.3.4")
 
 	// Зависимость нужна для работы механизма Spring Data JPA
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.3.4")
 	implementation("org.springframework.boot:spring-boot-starter-validation:3.3.4")
 
 	implementation("org.openapitools:jackson-databind-nullable:0.2.6")
-	implementation("org.mapstruct:mapstruct:1.6.0.Beta1")
-	annotationProcessor("org.mapstruct:mapstruct-processor:1.6.0.Beta1")
+	implementation("org.mapstruct:mapstruct:1.6.2")
+	annotationProcessor("org.mapstruct:mapstruct-processor:1.6.1")
 	// Для работы с БД
-	runtimeOnly("com.h2database:h2:2.2.224")
+	runtimeOnly("com.h2database:h2:2.3.232")
+	runtimeOnly("org.postgresql:postgresql:42.7.4")
 	// Для работы с тестами
 	testImplementation("org.springframework.boot:spring-boot-starter-test:3.3.3")
 	testImplementation("org.springframework.security:spring-security-test:6.3.3")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.11.2")
 	testImplementation(platform("org.junit:junit-bom:5.10.1"))
 	testImplementation("org.junit.jupiter:junit-jupiter:5.11.1")
+	implementation("net.datafaker:datafaker:2.4.2")
+	implementation("org.instancio:instancio-junit:5.4.0")
 }
 
 checkstyle {
